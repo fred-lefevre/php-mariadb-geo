@@ -15,4 +15,5 @@ CREATE TABLE geographie.pays (
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('AFG', 'Afghanistan', 'Kabul', 38346720, 652867);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('AGO', 'Angola', 'Luanda', 34795287, 1246700);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('ARG', 'Argentina', 'Buenos Aires', 46044703, 2780400);
+INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('AUS', 'Australia', 'Canberra', 26487000, 7692024);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('CAN', 'Canada', 'Ottawa', 39566248, 9984670);

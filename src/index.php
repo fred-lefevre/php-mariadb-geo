@@ -20,6 +20,7 @@ $dbh = null;
             <h1>Accueil Base Géographie</h1>
         </div>
         <div class="container-fluid">
+            <a href="./ajouter-pays.php" class="btn btn-info">Ajouter un pays</a>
             <table class="table">
                 <thead>
                     <tr>
