@@ -1,9 +1,15 @@
 <?php
 $sql = "INSERT INTO pays (code, nom, capitale, population, superficie)
-VALUES (UPPER(TRIM('{$_POST['code']}')), '{$_POST['nom']}', '{$_POST['capitale']}', {$_POST['popu']}, {$_POST['super']});";
+VALUES (UPPER(TRIM(:code)), :nom, :capitale, :population, :superficie)";
 
 $dbh = new PDO('mysql:host=127.0.0.1;dbname=geographie;port=3306;charset=utf8mb4', 'marco', 'polo');
-$stmt = $dbh->query($sql);
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':code', $_POST['code']);
+$stmt->bindValue(':nom', $_POST['nom']);
+$stmt->bindValue(':capitale', $_POST['capitale']);
+$stmt->bindValue(':population', $_POST['popu']);
+$stmt->bindValue(':superficie', $_POST['super']);
+$stmt->execute();
 $dbh = null;
 
 $message = "Réussite de l'ajout de : {$_POST['nom']}";
