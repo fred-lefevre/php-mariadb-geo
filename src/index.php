@@ -1,4 +1,11 @@
 <?php
+function alerte($message, $classe_css) {
+    $html = "<div class=\"alert $classe_css\">";
+    $html .= $message;
+    $html .= "</div>";
+    return $html;
+}
+
 try {
     $dbh = new PDO('mysql:host=127.0.0.1;dbname=geographie;port=3306;charset=utf8mb4', 'marco', 'polo');
     $stmt = $dbh->query('SELECT * FROM pays');
@@ -6,8 +13,8 @@ try {
     $nb_pays = count($les_pays);
     $dbh = null;
 } catch (Exception $e) {
-    echo 'Probleme : ' . $e->getMessage();
-    exit;
+    $message = $e->getMessage();
+    $feedback = alerte($message, 'alert-danger');
 }
 ?>
 <!DOCTYPE html>
@@ -25,6 +32,11 @@ try {
             <h1>Accueil Base Géographie</h1>
         </div>
         <div class="container-fluid">
+            <?php
+                if (isset($feedback)) {
+                    echo $feedback;
+                } else {
+            ?>
             <a href="./ajouter-pays.php" class="btn btn-info">Ajouter un pays</a>
             <table class="table">
                 <thead>
@@ -51,6 +63,7 @@ try {
                     <?php } ?>
                 </tbody>
             </table>
+            <?php } ?>
         </div>
         <!-- Bootstrap Bundle with Popper -->
         <script src="./js/bootstrap.bundle.min.js"></script>

@@ -1,4 +1,11 @@
 <?php
+function alerte($message, $classe_css) {
+    $html = "<div class=\"alert $classe_css\">";
+    $html .= $message;
+    $html .= "</div>";
+    return $html;
+}
+
 try {
     $sql = "INSERT INTO pays (code, nom, capitale, population, superficie)
     VALUES (UPPER(TRIM(:code)), :nom, :capitale, :population, :superficie)";
@@ -14,8 +21,10 @@ try {
     $dbh = null;
 
     $message = "Réussite de l'ajout de : {$_POST['nom']}";
+    $feedback = alerte($message, 'alert-info');
 } catch (Exception $e) {
     $message = $e->getMessage();
+    $feedback = alerte($message, 'alert-danger');
 }
 ?>
 <!DOCTYPE html>
@@ -33,9 +42,7 @@ try {
             <h1>Résultat de l'ajout du pays</h1>
         </div>
         <div class="container-fluid">
-            <div class="alert alert-info">
-                <?= $message; ?>
-            </div>
+            <?= $feedback; ?>
             <p><a href="./index.php" class="btn btn-outline-info">Accueil</a></p>
         </div>
         <!-- Bootstrap Bundle with Popper -->
