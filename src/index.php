@@ -1,9 +1,14 @@
 <?php
-$dbh = new PDO('mysql:host=127.0.0.1;dbname=geographie;port=3306;charset=utf8mb4', 'marco', 'polo');
-$stmt = $dbh->query('SELECT * FROM pays');
-$les_pays = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$nb_pays = count($les_pays);
-$dbh = null;
+try {
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=geographie;port=3306;charset=utf8mb4', 'marco', 'polo');
+    $stmt = $dbh->query('SELECT * FROM pays');
+    $les_pays = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $nb_pays = count($les_pays);
+    $dbh = null;
+} catch (Exception $e) {
+    echo 'Probleme : ' . $e->getMessage();
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
