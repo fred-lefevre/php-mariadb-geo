@@ -1,10 +1,5 @@
 <?php
-function alerte($message, $classe_css) {
-    $html = "<div class=\"alert $classe_css\">";
-    $html .= $message;
-    $html .= "</div>";
-    return $html;
-}
+require_once "./inc/outils.php";
 
 try {
     $dbh = new PDO('mysql:host=127.0.0.1;dbname=geographie;port=3306;charset=utf8mb4', 'marco', 'polo');

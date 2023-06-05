@@ -1,10 +1,5 @@
 <?php
-function alerte($message, $classe_css) {
-    $html = "<div class=\"alert $classe_css\">";
-    $html .= $message;
-    $html .= "</div>";
-    return $html;
-}
+require_once "./inc/outils.php";
 
 try {
     $sql = "INSERT INTO pays (code, nom, capitale, population, superficie)
