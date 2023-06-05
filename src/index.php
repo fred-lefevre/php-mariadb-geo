@@ -44,6 +44,7 @@ try {
                         <th>capitale</th>
                         <th>population</th>
                         <th>superficie</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,12 @@ try {
                             <td><?= $un_pays["capitale"] ?></td>
                             <td><?= $un_pays["population"] ?></td>
                             <td><?= $un_pays["superficie"] ?></td>
+                            <td>
+                                <form action="./supprimer-pays-resultat.php" method="post">
+                                    <input type="hidden" name="code" value="<?= $un_pays["code"] ?>">
+                                    <button type="submit" class="btn btn-sm btn-danger">Supprimer</a>
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
