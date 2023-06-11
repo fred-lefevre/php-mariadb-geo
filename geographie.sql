@@ -18,5 +18,7 @@ INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('AUS', 'Australia', 'Canberra', 26487000, 7692024);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('CAN', 'Canada', 'Ottawa', 39566248, 9984670);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('ECU', 'Ecuador', 'Quito', 17289554, 283561);
+INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('EGY', 'Egypt', 'Cairo', 104635983, 1010408);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('LBR', 'Liberia', 'Monrovia', 5358483, 111370);
 INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('IND', 'India', 'New Delhi', 1425775850, 3287263);
+INSERT INTO geographie.pays (code, nom, capitale, population, superficie) VALUES ('EGY', 'Egypt', 'Cairo', 104635983, 1010408);
