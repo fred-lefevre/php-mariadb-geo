@@ -1,6 +1,9 @@
 <?php
 require_once "./inc/outils.php";
 
+session_start();
+$role = $_SESSION["role"] ?? 'anonyme';
+
 try {
     $dbh = new PDO('mysql:host=127.0.0.1;dbname=geographie;port=3306;charset=utf8mb4', 'marco', 'polo');
     $stmt = $dbh->query('SELECT * FROM pays');
@@ -74,6 +77,7 @@ try {
             </table>
             <?php } ?>
         </div>
+        <?= info_connexion($role) ?>
         <!-- Bootstrap Bundle with Popper -->
         <script src="./js/bootstrap.bundle.min.js"></script>
     </body>

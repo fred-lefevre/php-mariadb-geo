@@ -1,3 +1,9 @@
+<?php
+require_once "./inc/outils.php";
+
+session_start();
+$role = $_SESSION["role"] ?? 'anonyme';
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -64,6 +70,7 @@
                 </div>
             </form>
         </div>
+        <?= info_connexion($role) ?>
         <!-- Bootstrap Bundle with Popper -->
         <script src="./js/bootstrap.bundle.min.js"></script>
     </body>
