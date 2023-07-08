@@ -3,6 +3,7 @@ require_once "./inc/outils.php";
 
 session_start();
 $role = $_SESSION["role"] ?? 'anonyme';
+verifier_role($role, 'administrateur');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

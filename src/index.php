@@ -35,7 +35,9 @@ try {
                     echo $feedback;
                 } else {
             ?>
-            <a href="./ajouter-pays.php" class="btn btn-info">Ajouter un pays</a>
+            <?php if ($role == "administrateur") { ?>
+                <a href="./ajouter-pays.php" class="btn btn-info">Ajouter un pays</a>
+            <?php } ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -47,8 +49,10 @@ try {
                         <th>capitale</th>
                         <th>population</th>
                         <th>superficie</th>
-                        <th></th>
-                        <th></th>
+                        <?php if ($role == "administrateur") { ?>
+                            <th></th>
+                            <th></th>
+                        <?php } ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,18 +63,20 @@ try {
                             <td><?= $un_pays["capitale"] ?></td>
                             <td><?= $un_pays["population"] ?></td>
                             <td><?= $un_pays["superficie"] ?></td>
-                            <td>
-                                <form action="./modifier-pays.php" method="post">
-                                    <input type="hidden" name="code" value="<?= $un_pays["code"] ?>">
-                                    <button type="submit" class="btn btn-sm btn-info">Modifier</a>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="./supprimer-pays-resultat.php" method="post">
-                                    <input type="hidden" name="code" value="<?= $un_pays["code"] ?>">
-                                    <button type="submit" class="btn btn-sm btn-danger">Supprimer</a>
-                                </form>
-                            </td>
+                            <?php if ($role == "administrateur") { ?>
+                                <td>
+                                    <form action="./modifier-pays.php" method="post">
+                                        <input type="hidden" name="code" value="<?= $un_pays["code"] ?>">
+                                        <button type="submit" class="btn btn-sm btn-info">Modifier</a>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="./supprimer-pays-resultat.php" method="post">
+                                        <input type="hidden" name="code" value="<?= $un_pays["code"] ?>">
+                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</a>
+                                    </form>
+                                </td>
+                            <?php } ?>
                         </tr>
                     <?php } ?>
                 </tbody>

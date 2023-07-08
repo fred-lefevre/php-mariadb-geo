@@ -18,4 +18,9 @@ function info_connexion($role) {
     return $html;
 }
 
-
+function verifier_role($role, $role_attendu) {
+    if ($role != $role_attendu) {
+        header("Location: ./index.php");
+        exit;
+    }
+}

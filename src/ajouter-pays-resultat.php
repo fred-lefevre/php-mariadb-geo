@@ -1,6 +1,10 @@
 <?php
 require_once "./inc/outils.php";
 
+session_start();
+$role = $_SESSION["role"] ?? 'anonyme';
+verifier_role($role, 'administrateur');
+
 try {
     $sql = "INSERT INTO pays (code, nom, capitale, population, superficie)
     VALUES (UPPER(TRIM(:code)), :nom, :capitale, :population, :superficie)";
